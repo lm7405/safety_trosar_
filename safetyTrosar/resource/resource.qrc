@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icon/column.png</file>
+    <file>icon/link (1).png</file>
+    <file>icon/columns.png</file>
+    <file>icon/delete_row.png</file>
+    <file>icon/icons8-enter-32.png</file>
+    <file>icon/icons8-mac-키-입력-50.png</file>
+    <file>icon/icons8-구하다-30.png</file>
+    <file>icon/icons8-끄르다-24.png</file>
+    <file>icon/icons8-다시-하다-24.png</file>
+    <file>icon/icons8-마이너스-32.png</file>
+    <file>icon/icons8-부-26.png</file>
+    <file>icon/icons8-수입-24.png</file>
+    <file>icon/icons8-수출-24.png</file>
+    <file>icon/icons8-을-더한-24.png</file>
+    <file>icon/icons8-풀-26.png</file>
+    <file>icon/refresh_1.png</file>
+    <file>icon/row_insert.png</file>
+  </qresource>
+</RCC>
