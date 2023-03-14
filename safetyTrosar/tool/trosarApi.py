@@ -4,7 +4,6 @@ from typing import Dict, Union, List, Any, Type
 from enum import Enum
 import urllib3
 from pydantic import BaseModel
-from requests_toolbelt import MultipartEncoder
 
 
 class METHOD(Enum):

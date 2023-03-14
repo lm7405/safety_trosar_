@@ -175,10 +175,6 @@ class PandasTableData(BaseModel):           # 데이터프레임에 대한 변�
         return columns
 
     def insert_row(self, row: List):
-        # add line to dataframe
-        # add line to tableView
-        # modify merged setting
-        # modify protected setting
 
         raise
 
@@ -199,6 +195,21 @@ class PandasTableData(BaseModel):           # 데이터프레임에 대한 변�
 
     def copy_data(self):
         raise
+        """
+            # Read the Excel data into a pandas dataframe
+            xl = pd.read_excel('example.xlsx', usecols=selection_range)
+        
+            # Convert the dataframe to tab-separated text with empty cells as ""
+            text = xl.to_csv(sep='\t', index=False, header=False, na_rep='""')
+        
+            # Set the clipboard data in CF_TEXT format
+            win32clipboard.OpenClipboard()
+            win32clipboard.EmptyClipboard()
+            win32clipboard.SetClipboardText(text, win32clipboard.CF_TEXT)
+            win32clipboard.CloseClipboard()
+            
+            copy_excel_to_clipboard("A1:C3")
+        """
 
     def paste_data(self, paste_data):
         raise
@@ -413,20 +424,11 @@ class PandasModel(QtCore.QAbstractTableModel):
     def data(self, index, role=Qt.DisplayRole):
         row = index.row()
         column = index.column()
-        if False and index.column() == temp_column_number:
-            # if role == Qt.CheckStateRole:
-            #     return True
-            if role == Qt.DisplayRole:
-                value = self.table_data.dataframe.iloc[index.row(), index.column()]
-                return value
-            if role == Qt.EditRole:
-                value = self.table_data.dataframe.iloc[index.row(), index.column()]
-                return value
-        else:
-            if role == Qt.DisplayRole:
-                return QtCore.QVariant('{0}'.format(self.table_data.dataframe.iloc[row, column]))
-            elif role == Qt.EditRole:
-                return QtCore.QVariant('{0}'.format(self.table_data.dataframe.iloc[row, column]))
+        if role == Qt.DisplayRole:
+            return QtCore.QVariant('{0}'.format(self.table_data.dataframe.iloc[row, column]))
+        elif role == Qt.EditRole:
+            return QtCore.QVariant('{0}'.format(self.table_data.dataframe.iloc[row, column]))
+
         return QtCore.QVariant()
 
         # if index.isValid():
